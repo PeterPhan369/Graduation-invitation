@@ -60,8 +60,24 @@
             margin-top: 5px; 
         }
         
+        /* --- ADDED Profile Picture Styles --- */
+        .profile-pic-container {
+            margin-top: 30px;
+            position: relative;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Makes it circular */
+            object-fit: cover; /* Ensures image isn't distorted */
+            border: 4px solid #ffffff; /* White border frame */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Nice deep shadow */
+            display: block; /* Helps centering */
+        }
+        /* --- END OF ADDED Styles --- */
+
         .greeting {
-            margin-top: 50px;
+            margin-top: 30px; /* Reduced from 50px since pic is there now */
             padding: 30px 50px;
             background: white;
             border-radius: 15px;
@@ -104,7 +120,6 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            /* Required by swiper for absolute positioning of arrows */
             position: relative; 
         }
         .swiper-slide img {
@@ -151,6 +166,10 @@
             <h1 class="invitation-title">Graduation</h1>
             <p class="invitation-sub">invitation.</p>
         </div>
+
+        <div class="profile-pic-container" data-aos="zoom-in" data-aos-delay="200">
+            <img src="https://via.placeholder.com/150/1a365d/d69e2e?text=PROFILE+PIC" alt="Đạo Phan Profile" class="profile-pic">
+        </div>
         <div class="greeting" data-aos="zoom-in" data-aos-delay="400">
             <p>Thân mời: <strong id="guest-name">Bạn</strong></p>
             <p>đến dự buổi lễ tốt nghiệp của <br> <strong>Đạo Phan</strong></p>
@@ -194,7 +213,7 @@
     <section class="footer-section">
         <div data-aos="zoom-in">
             <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">We hope to see you there!</h3>
-            <p class="contact-info">FB: Peter Đạo &nbsp;|&nbsp; SĐT: 0968 979 839</p>
+            <p class="contact-info">FB: Peter Đạo  |  SĐT: 0968 979 839</p>
             <a href="https://www.facebook.com/PeterDao2003" target="_blank" class="btn">Confirm Attendance</a>
         </div>
     </section>
@@ -205,7 +224,7 @@
     <script>
         // Initialize AOS Animation
         AOS.init({
-            once: true, // Only animate once when scrolling down
+            once: true,
             offset: 100
         });
         
@@ -224,7 +243,7 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            effect: 'fade', // Add a nice fade transition between images
+            effect: 'fade',
             fadeEffect: {
                 crossFade: true
             }
