@@ -4,66 +4,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đạo Phan - Graduation Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
-        :root { --text-color: #333; --bg-color: #fff; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text-color); overflow-x: hidden; }
-        section { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        :root {
+            --primary-color: #1a365d; /* Elegant deep blue */
+            --accent-color: #d69e2e; /* Classy gold */
+            --text-main: #2d3748;
+            --text-light: #718096;
+            --bg-color: #f7fafc;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--text-main); 
+            background-color: var(--bg-color);
+            overflow-x: hidden; 
+        }
+
+        /* Smooth sections */
+        section { 
+            min-height: 100vh; /* Changed to min-height so content doesn't get cut off on small screens */
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 60px 20px; 
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #ffffff 0%, #edf2f7 100%);
+            position: relative;
+        }
+
+        /* Typography */
+        .invitation-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 4rem; 
+            color: var(--primary-color);
+            margin-bottom: 0; 
+            line-height: 1.1;
+        }
+        .invitation-sub { 
+            font-family: 'Playfair Display', serif;
+            font-style: italic; 
+            font-size: 1.8rem; 
+            color: var(--accent-color);
+            margin-top: 5px; 
+        }
         
-        .invitation-title { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 0; }
-        .invitation-sub { font-style: italic; font-size: 1.5rem; margin-top: -10px; }
-        
-        .highlight { font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 5px; }
-        .map-container { width: 100%; max-width: 600px; height: 300px; margin-top: 20px; border: 1px solid #ddd; }
-        
-        .contact-info { margin-top: 50px; font-size: 0.9rem; letter-spacing: 1px; }
-        .btn { margin-top: 20px; padding: 10px 20px; background: #000; color: #fff; text-decoration: none; border-radius: 5px; }
+        .greeting {
+            margin-top: 50px;
+            padding: 30px 50px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .greeting p { font-size: 1.1rem; margin: 10px 0; }
+        .greeting strong { color: var(--primary-color); font-size: 1.4rem; }
+
+        /* Middle Section - Details & Map */
+        .details-section {
+            background-color: #ffffff;
+        }
+
+        .highlight { 
+            font-weight: 600; 
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 3px solid var(--accent-color); 
+            padding-bottom: 10px; 
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Map Styling */
+        .map-container { 
+            width: 100%; 
+            max-width: 800px; 
+            height: 350px; 
+            margin-top: 30px; 
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Slider Styling */
+        .swiper-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            /* Required by swiper for absolute positioning of arrows */
+            position: relative; 
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Contact & Footer Section */
+        .footer-section {
+            background: var(--primary-color);
+            color: white;
+        }
+        .footer-section .contact-info { 
+            margin-top: 20px; 
+            font-size: 1rem; 
+            letter-spacing: 1px; 
+            color: #e2e8f0;
+        }
+        .btn { 
+            display: inline-block;
+            margin-top: 30px; 
+            padding: 15px 35px; 
+            background: var(--accent-color); 
+            color: #fff; 
+            font-weight: 600;
+            text-decoration: none; 
+            border-radius: 30px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(214, 158, 46, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(214, 158, 46, 0.6);
+            background: #b7791f;
+        }
     </style>
 </head>
 <body>
 
-    <section>
-        <div data-aos="fade-down" data-aos-duration="1000">
+    <section class="hero-section">
+        <div data-aos="fade-down" data-aos-duration="1200">
             <h1 class="invitation-title">Graduation</h1>
             <p class="invitation-sub">invitation.</p>
         </div>
-        <div data-aos="zoom-in" data-aos-delay="500" style="margin-top: 40px;">
+        <div class="greeting" data-aos="zoom-in" data-aos-delay="400">
             <p>Thân mời: <strong id="guest-name">Bạn</strong></p>
-            <p>đến dự buổi lễ tốt nghiệp của <strong>Đạo Phan</strong></p>
+            <p>đến dự buổi lễ tốt nghiệp của <br> <strong>Đạo Phan</strong></p>
         </div>
     </section>
 
-    <section style="background-color: #f9f9f9;">
-        <div data-aos="fade-right">
-            <h2 class="highlight">24 April, 2026 | 9h</h2>
-            <p>Trường Đại học Bách Khoa - Đại học Quốc Gia TP.HCM</p>
+    <section class="details-section">
+        <div data-aos="fade-up">
+            <h2 class="highlight">24 April, 2026 | 9H00</h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); font-weight: 600; line-height: 1.6;">
+                Trường Đại học Bách Khoa - ĐHQG TP.HCM<br>
+                <span style="font-size: 0.9rem; font-weight: 400;">(268 Lý Thường Kiệt, Phường 14, Quận 10, TP.HCM)</span>
+            </p>
         </div>
         
-        <div class="map-container" data-aos="fade-up">
+        <div class="map-container" data-aos="fade-up" data-aos-delay="200">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d125389.50405414576!2d106.70725722361024!3d10.855472791843344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31752ec3c161a3fb%3A0xef77cd47a1cc691e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBraG9hIC0gxJDhuqFpIGjhu41jIFF14buRYyBnaWEgVFAuSENNLCAyNjggxJAuIEzDvSBUaMaw4budbmcgS2nhu4d0LCBQaMaw4budbmcgMTQsIERpw6puIEjhu5NuZywgSOG7kyBDaMOtIE1pbmggNzAwMDAsIFZp4buHdCBOYW0!3m2!1d10.772075!2d106.65790179999999!5e0!3m2!1svi!2s!4v1776681428919!5m2!1svi!2s%22%20width=%22600%22%20height=%22450%22%20style=%22border:0;%22%20allowfullscreen=%22%22%20loading=%22lazy%22%20referrerpolicy=%22no-referrer-when-downgrade" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                src="https://maps.google.com/maps?q=Đại%20học%20Bách%20Khoa%20TPHCM&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+        </div>
+
+        <div class="swiper swiper-container" data-aos="fade-up" data-aos-delay="400">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ho_Chi_Minh_City_University_of_Technology.jpg/1024px-Ho_Chi_Minh_City_University_of_Technology.jpg" alt="Đại học Bách Khoa TP.HCM">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Toa_nha_A4_DHBK_TPHCM.jpg/1024px-Toa_nha_A4_DHBK_TPHCM.jpg" alt="Tòa nhà A4 - Đại học Bách Khoa">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Thu_vien_DH_Bach_Khoa_TPHCM.jpg/1024px-Thu_vien_DH_Bach_Khoa_TPHCM.jpg" alt="Thư viện Đại học Bách Khoa">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev" style="color: var(--accent-color);"></div>
+            <div class="swiper-button-next" style="color: var(--accent-color);"></div>
         </div>
     </section>
 
-    <section>
-        <div data-aos="flip-left">
-            <p class="contact-info">FB: Peter Đạo | SĐT: 0968 979 839</p>
-            <a href="https://www.facebook.com/PeterDao2003" class="btn">Confirm Attendance</a>
+    <section class="footer-section">
+        <div data-aos="zoom-in">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">We hope to see you there!</h3>
+            <p class="contact-info">FB: Peter Đạo &nbsp;|&nbsp; SĐT: 0968 979 839</p>
+            <a href="https://www.facebook.com/PeterDao2003" target="_blank" class="btn">Confirm Attendance</a>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
     <script>
-        AOS.init();
+        // Initialize AOS Animation
+        AOS.init({
+            once: true, // Only animate once when scrolling down
+            offset: 100
+        });
         
-        // Simple Web Dev Trick: Personalize via URL (?name=Peter)
+        // Initialize Swiper Carousel
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade', // Add a nice fade transition between images
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // Personalize via URL (?name=Peter)
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('name');
         if (name) {
-            document.getElementById('guest-name').innerText = name;
+            document.getElementById('guest-name').innerText = decodeURIComponent(name);
         }
     </script>
 </body>
