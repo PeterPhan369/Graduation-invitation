@@ -129,6 +129,48 @@
             display: block;
         }
 
+        /* --- ADDED Campus Info Styles --- */
+        .campus-info {
+            margin-top: 35px;
+            padding: 25px 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--accent-color);
+            text-align: left;
+            width: 100%;
+            max-width: 740px; /* slightly smaller than the slider for a neat layout */
+            box-sizing: border-box;
+        }
+        .campus-info h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        .campus-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .campus-info li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            line-height: 1.5;
+        }
+        .campus-info li:last-child {
+            margin-bottom: 0;
+        }
+        .campus-info li strong {
+            margin: 0 8px;
+            color: var(--primary-color);
+        }
+        /* --- END OF ADDED Styles --- */
+
         /* Contact & Footer Section */
         .footer-section {
             background: var(--primary-color);
@@ -208,12 +250,21 @@
             <div class="swiper-button-prev" style="color: var(--accent-color);"></div>
             <div class="swiper-button-next" style="color: var(--accent-color);"></div>
         </div>
-    </section>
+
+        <div class="campus-info" data-aos="fade-up" data-aos-delay="600">
+            <h3>Thông tin di chuyển & Gửi xe</h3>
+            <ul>
+                <li>📍 <strong>Cổng chính:</strong> Đường Lý Thường Kiệt</li>
+                <li>📍 <strong>Cổng phụ:</strong> Đường Tô Hiến Thành</li>
+                <li>🛵 <strong>Phí gửi xe:</strong> 2.000 VNĐ / lượt</li>
+            </ul>
+        </div>
+        </section>
 
     <section class="footer-section">
         <div data-aos="zoom-in">
             <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">We hope to see you there!</h3>
-            <p class="contact-info">FB: Peter Đạo  |  SĐT: 0968 979 839</p>
+            <p class="contact-info">FB: Peter Đạo  |  SĐT: 0968 979 839</p>
             <a href="https://www.facebook.com/PeterDao2003" target="_blank" class="btn">Confirm Attendance</a>
         </div>
     </section>
